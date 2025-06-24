@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fire Network</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!--  LOADER -->
+  <div id="loader" class="loader">
+    <img src="fire.gif" alt="Loading..." width="80" />
+    <h2>Igniting Fire Network...</h2>
+  </div>
+
+  <!--  LOGIN SECTION -->
+  <div id="app" class="hidden">
+    <h1>Welcome to Fire Network</h1>
+    <input type="email" id="email" placeholder="Enter your email" />
+    <button onclick="sendLoginCode()">Send Confirmation Code</button>
+    <p>After you click the link in your email, you’ll be asked to enter a username.</p>
+  </div>
+
+  <!--  USERNAME SECTION -->
+  <div id="username-setup" class="hidden">
+    <h2>Set Your Username</h2>
+    <input id="username-input" placeholder="Your username (letters only)" />
+    <button onclick="submitUsername()">Save Username</button>
+  </div>
+
+  <!--  MINING SECTION -->
+  <div id="mining-section" class="hidden">
+    <h2> Mining Dashboard</h2>
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+    <p id="mining-status">Click start to begin mining...</p>
+    <button onclick="startMining()">Start Mining</button>
+
+    <div class="referral-box">
+      <h3>Your Referral Link</h3>
+      <input id="referral-link" readonly />
+      <button onclick="copyReferral()">Copy Link</button>
+    </div>
+  </div>
+
+  <!--  FIREBASE SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+  <!--  MAIN APP JS -->
+  <script src="app.js"></script>
+
+  <!--  LOADER SCRIPT -->
+  <script>
+    setTimeout(() => {
+      document.getElementById("loader").classList.add("hidden");
+      document.getElementById("app").classList.remove("hidden");
+    }, 5000); // 5 second fire loading
+  </script>
+</body>
+</html>
